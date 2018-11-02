@@ -1,0 +1,36 @@
+{
+	"articles": [
+		{
+			"date" : 1541111400,
+			"link" : "https://www.nbcnews.com/politics/immigration/trump-plans-block-migrants-claiming-asylum-between-legal-ports-entry-n930056",
+			"photoLink" : "https://media1.s-nbcnews.com/j/newscms/2018_44/2629181/181101-donald-trump-immigration-al-1708_3bff2015fca34e589c006a6b0710b80c.fit-1000w.jpg",
+			"headline" : "Trump plans to block migrants from claiming asylum between legal ports of entry",
+			"author" : "Julia Ainsley",
+			"fullText" : "WASHINGTON — President Donald Trump delivered a sharply worded speech on immigration Thursday, vowing to hold undocumented immigrants in detention until they could be deported and to block asylum seekers from claiming asylum if they are caught crossing the border outside of legal ports of entry."
+		},
+		{
+			"date" : 1541086200,
+			"link" : "https://www.nbcbayarea.com/news/local/Did-San-Franciscos-Salesforce-Tower-Light-Up-as-the-Flaming-Eye-of-Sauron-on-Halloween-499223221.html",
+			"photoLink" : "http://1ryzas42x65e2oosia40bgli.wpengine.netdna-cdn.com/wp-content/uploads/2018/10/Webp.net-resizeimage.jpg",
+			"headline" : "San Francisco's Salesforce Tower Lights Up as the Flaming 'Eye of Sauron' on Halloween",
+			"author" : "Kristofer Noceda",
+			"fullText" : "OK, Salesforce Tower. We see you. The high-rise that scales the upper reaches of San Francisco's skyline on Halloween night featured flames from its LED projectors, instantly grabbing the attention of city dwellers and setting social media on fire."
+		},
+		{
+			"date" : 1541065500,
+			"link" : "https://www.theverge.com/2018/11/1/18053366/nasa-dawn-spacecraft-dead",
+			"photoLink" : "https://cdn.vox-cdn.com/thumbor/OmpcSjZNH89PIs8tcw31EeBqtHw=/0x0:640x350/1820x1213/filters:focal(269x124:371x226)/cdn.vox-cdn.com/uploads/chorus_image/image/62041953/PIA20919_640x350.0.jpg",
+			"headline" : "NASA’s Dawn spacecraft is dead",
+			"author" : "Mary Beth Griggs",
+			"fullText" : "While people on Earth celebrated Halloween, NASA’s Dawn spacecraft quietly gave up the ghost. The spacecraft, which explored two of the largest objects in the asteroid belt missed its last two check-ins, one on October 31st and another on November 1st. Without a signal from the spacecraft, NASA engineers concluded that Dawn had finally run out of fuel, officially ending its mission."
+		},
+		{
+			"date" : 1541099340,
+			"link" : "https://www.sfgate.com/entertainment/article/drake-oakland-tour-waterbar-august-hall-bowling-13353001.php",
+			"photoLink" : "https://s.hdnux.com/photos/76/53/63/16432378/3/920x920.jpg",
+			"headline" : "Where Drake bowled, dined and wined in San Francisco last weekend",
+			"author" : "Michelle Robertson",
+			"fullText" : "Drake experienced the many flavors of the Bay Area last weekend, when he touched down to perform two shows at the Oakland Coliseum and host a birthday party (for himself) at San Francisco City Hall. What did he do when people weren't paying him to appear? He drank, dined and, oddly enough, bowled."
+		}
+	]
+}

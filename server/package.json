@@ -1,0 +1,15 @@
+{
+  "name": "generating-managing-test-data-server",
+  "version": "1.0.0",
+  "description": "This project will run a basic node js server to return a json structure with data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm install && echo Server Started 🚀 && node index.js"
+  },
+  "author": "Omose Ogala",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
