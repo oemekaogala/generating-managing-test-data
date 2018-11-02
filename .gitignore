@@ -1,1 +1,4 @@
 server/node_modules/
+*.xcuserstate
+*.xcbkptlist
+GeneratingAndManagingTestDataSampleApp/GeneratingAndManagingTestDataSampleApp.xcodeproj/xcuserdata/omoseogala.xcuserdatad/
