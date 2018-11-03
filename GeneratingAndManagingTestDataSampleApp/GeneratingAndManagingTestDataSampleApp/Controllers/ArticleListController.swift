@@ -17,6 +17,15 @@ class ArticleListController: UIViewController, UITableViewDelegate, UITableViewD
         return tableView
     }()
     
+    let isTesting: Bool = {
+        return ProcessInfo.processInfo.arguments.contains(TestingArgumentNames.isTestArg)
+    }()
+    
+    let mockedJson: String? = {
+        guard let index = (ProcessInfo.processInfo.arguments.index { $0 == TestingArgumentNames.mockedJsonArg}) else { return nil }
+        return ProcessInfo.processInfo.arguments[index+1]
+    }()
+    
     static let mainBgColor = UIColor.white
     let cellId = "MyCell"
     let sampleDataLink = "http://localhost:8080/sample-data"
@@ -25,7 +34,7 @@ class ArticleListController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = ArticleListController.mainBgColor
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
@@ -39,16 +48,30 @@ class ArticleListController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func loadArticles() {
+        
         let url = URL(string: sampleDataLink)!
         
         getData(from: url) { (data, response, error) in
+            
+            var jsonData: Data? = data
+            
+            // Only in testing mode, swap json data
+            if self.isTesting {
+                guard
+                    let mockedJson = self.mockedJson,
+                    let testingJsonData = mockedJson.data(using: .utf8)
+                else { return }
+                    
+                jsonData = testingJsonData
+            }
+            
             guard
-                let data = data,
+                let data = jsonData,
                 let appData = try? JSONDecoder().decode(AppData.self, from: data)
                 else { return }
             
             DispatchQueue.main.async {
-                self.articles = appData.articles
+                self.articles = appData.articles.shuffled()
                 self.tableView.reloadData()
             }
         }

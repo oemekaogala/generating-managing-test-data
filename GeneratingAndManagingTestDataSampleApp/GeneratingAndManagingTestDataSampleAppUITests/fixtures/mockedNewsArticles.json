@@ -1,0 +1,12 @@
+{
+    "articles": [
+        {
+            "date" : 1541111400,
+            "link" : "https://www.nbcnews.com/politics/immigration/trump-plans-block-migrants-claiming-asylum-between-legal-ports-entry-n930056",
+            "photoLink" : "https://media1.s-nbcnews.com/j/newscms/2018_44/2629181/181101-donald-trump-immigration-al-1708_3bff2015fca34e589c006a6b0710b80c.fit-1000w.jpg",
+            "headline" : "Trump plans to block migrants from claiming asylum between legal ports of entry",
+            "author" : "Julia Ainsley",
+            "fullText" : "WASHINGTON — President Donald Trump delivered a sharply worded speech on immigration Thursday, vowing to hold undocumented immigrants in detention until they could be deported and to block asylum seekers from claiming asylum if they are caught crossing the border outside of legal ports of entry."
+        }
+    ]
+}
