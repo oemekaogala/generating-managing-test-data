@@ -8,7 +8,11 @@
 
 import Foundation
 
-class TestingArgumentNames {
+class TestingConstants {
     static let isTestArg = "-isTesting"
     static let mockedJsonArg = "-mockedJson"
+    
+    static let headlineAccessibilityId = "headline"
+    static let fullTextAccessibilityId = "full-text"
+    
 }

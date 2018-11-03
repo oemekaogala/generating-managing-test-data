@@ -10,6 +10,12 @@ import UIKit
 
 class ArticleListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    static let mainBgColor = UIColor.white
+    let cellId = "MyCell"
+    let sampleDataLink = "http://localhost:8080/sample-data"
+    var articles = [Article]()
+    var imageCache = [String: UIImage]()
+    
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = ArticleListController.mainBgColor
@@ -18,19 +24,13 @@ class ArticleListController: UIViewController, UITableViewDelegate, UITableViewD
     }()
     
     let isTesting: Bool = {
-        return ProcessInfo.processInfo.arguments.contains(TestingArgumentNames.isTestArg)
+        return ProcessInfo.processInfo.arguments.contains(TestingConstants.isTestArg)
     }()
     
     let mockedJson: String? = {
-        guard let index = (ProcessInfo.processInfo.arguments.index { $0 == TestingArgumentNames.mockedJsonArg}) else { return nil }
+        guard let index = (ProcessInfo.processInfo.arguments.index { $0 == TestingConstants.mockedJsonArg}) else { return nil }
         return ProcessInfo.processInfo.arguments[index+1]
     }()
-    
-    static let mainBgColor = UIColor.white
-    let cellId = "MyCell"
-    let sampleDataLink = "http://localhost:8080/sample-data"
-    var articles = [Article]()
-    var imageCache = [String: UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class ArticleListController: UIViewController, UITableViewDelegate, UITableViewD
             
             var jsonData: Data? = data
             
-            // Only in testing mode, swap json data
+            // Only when in testing mode, swap json data
             if self.isTesting {
                 guard
                     let mockedJson = self.mockedJson,
@@ -102,9 +102,13 @@ class ArticleListController: UIViewController, UITableViewDelegate, UITableViewD
             downloadImage(link: self.articles[indexPath.row].photoLink, imageView: cell.imageView!)
         }
         
+        
         cell.textLabel?.sizeToFit()
         cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.accessibilityIdentifier = TestingConstants.headlineAccessibilityId
         cell.textLabel?.text = self.articles[indexPath.row].headline
+        // Will cause test to fail when uncommented
+        // cell.textLabel?.text = self.articles[indexPath.row].author
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy - hh:mm a"
@@ -114,6 +118,7 @@ class ArticleListController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.detailTextLabel?.sizeToFit()
         cell.detailTextLabel?.numberOfLines = 0
+        cell.detailTextLabel?.accessibilityIdentifier = TestingConstants.fullTextAccessibilityId
         cell.detailTextLabel?.text = "\(dateString)\n\(self.articles[indexPath.row].fullText)\nWritten By: \(self.articles[indexPath.row].author)"
     
         return cell
@@ -148,4 +153,3 @@ struct Article: Codable {
     let photoLink: String
     let headline, author, fullText: String
 }
-
