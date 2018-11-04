@@ -142,14 +142,3 @@ class ArticleListController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 }
-
-struct AppData: Codable {
-    let articles: [Article]
-}
-
-struct Article: Codable {
-    let date: Int
-    let link: String
-    let photoLink: String
-    let headline, author, fullText: String
-}
