@@ -9,11 +9,11 @@
 Before you open the iOS workspace, you must first start the local server.
 
 ```
-cd generating-managing-test-data
-npm start 
+$ cd generating-managing-test-data
+$ npm start 
 ```
 
-> `npm start` will install the lastest node modules and well as start up the local server on port 8080.
+> `$ npm start` will install the lastest node modules and well as start up the local server on port 8080.
 
 At this point, you can go to `localhost:8080/sample-data` with any browser or a program like [Postman](https://www.getpostman.com)
 to view the JSON pretty printed.
@@ -25,8 +25,8 @@ run `sudo gem install cocoapods` to install it.
 
 To install the pods:
 ```
-cd generating-managing-test-data/GeneratingAndManagingTestDataSampleApp
-pod install
+$ cd generating-managing-test-data/GeneratingAndManagingTestDataSampleApp
+$ pod install
 ```
 > The pod required is [Fakery](https://github.com/vadymmarkov/Fakery), which helps with generating random raw data.
 
