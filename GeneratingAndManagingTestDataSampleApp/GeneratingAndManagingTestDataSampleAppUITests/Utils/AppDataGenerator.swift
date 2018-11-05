@@ -9,7 +9,7 @@
 import Foundation
 import Fakery
 
-class AppDataGenerator {
+class ArticlesGenerator {
 
     static func generateData(numberOfArticles: Int) -> [Article] {
         var articles = [Article]()

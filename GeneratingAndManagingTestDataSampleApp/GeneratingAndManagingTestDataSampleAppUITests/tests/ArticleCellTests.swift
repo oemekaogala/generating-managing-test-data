@@ -11,8 +11,10 @@ import XCTest
 class ArticleCellTests: XCTestCase {
     
     let app = XCUIApplication()
-    let expectedArticleHeadline = "Trump plans to block migrants from claiming asylum between legal ports of entry"
+    var expectedArticleHeadline = ""
+    
     // When using a json fixture instead of AppDataGenerator
+    // var expectedArticleHeadline = "Trump plans to block migrants from claiming asylum between legal ports of entry"
     // let mockedJsonFilename = "mockedNewsArticles.json"
     
     override func setUp() {
@@ -23,24 +25,24 @@ class ArticleCellTests: XCTestCase {
         app.launchArguments.append(TestingConstants.mockedJsonArg) // -mockedJson
         
         // Generate new test data for every test case
-        var testArticlesArray = AppDataGenerator.generateData(numberOfArticles: Int.random(in: 1...50))
+        let testArticlesArray = ArticlesGenerator.generateData(numberOfArticles: Int.random(in: 1...50))
         
         // Set a specific headline for testing
-        if var firstArticle = testArticlesArray.first {
-            firstArticle.headline = expectedArticleHeadline
-            testArticlesArray[0] = firstArticle
+        if let firstArticle = testArticlesArray.first {
+            expectedArticleHeadline = firstArticle.headline
         }
         
         /* Pass json for test */
         // When using a json fixture instead of AppDataGenerator
         // let mockedJsonString = Utils.getJsonString(fileName: mockedJsonFilename, testCase: self)
-        let mockedJsonString = AppDataGenerator.createJsonString(articles: testArticlesArray) ?? ""
+        
+        let mockedJsonString = ArticlesGenerator.createJsonString(articles: testArticlesArray) ?? ""
         app.launchArguments.append(mockedJsonString) // -mockedJson's parameter
         app.launch()
     }
     
     func testHeadline_RendersCorrectly() {
-        let expectedHeadlineElement = app.cells.staticTexts.matching(NSPredicate(format: "label == '\(expectedArticleHeadline)'")).element
+        let expectedHeadlineElement = app.cells.staticTexts.matching(NSPredicate(format: "label == '\(expectedArticleHeadline)' && identifier == '\(TestingConstants.headlineAccessibilityId)'")).element
         
         XCTAssert(expectedHeadlineElement.exists, "The headline doesn't properly render.")
     }
