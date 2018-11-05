@@ -21,7 +21,7 @@ to view the JSON pretty printed.
 ----
 ###### iOS Project
 Before you open the workspace, you must install the pods. If you dont have CocoaPods installed on your computer, 
-run `sudo gem install cocoapods` to install it.
+run `$ sudo gem install cocoapods` to install it.
 
 To install the pods:
 ```
