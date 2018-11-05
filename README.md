@@ -48,3 +48,4 @@ To run the tests, go to `GeneratingAndManagingTestDataSampleAppUITests/tests/Art
 
 ## Author
 Omose Ogala, omose.ogala@gmail.com
+Twitter: [@Omoseisreal](https://twitter.com/omoseisreal)
