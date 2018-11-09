@@ -20,12 +20,10 @@ class ArticleCellTests: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         
-        // Set launch arguments
-        app.launchArguments.append(TestingConstants.isTestArg) // -isTesting
-        app.launchArguments.append(TestingConstants.mockedJsonArg) // -mockedJson
+        setUpTestingMode()
         
         // Generate new test data for every test case
-        let testArticlesArray = ArticlesGenerator.generateData(numberOfArticles: Int.random(in: 1...50))
+        let testArticlesArray = ArticlesGenerator.generateData(numberOfArticles: Int.random(in: 10...50))
         
         // Set a specific headline for testing
         if let firstArticle = testArticlesArray.first {
@@ -45,5 +43,10 @@ class ArticleCellTests: XCTestCase {
         let expectedHeadlineElement = app.cells.staticTexts.matching(NSPredicate(format: "label == '\(expectedArticleHeadline)' && identifier == '\(TestingConstants.headlineAccessibilityId)'")).element
         
         XCTAssert(expectedHeadlineElement.exists, "The headline doesn't properly render.")
+    }
+
+    private func setUpTestingMode() {
+        app.launchArguments.append(TestingConstants.isTestArg) // -isTesting
+        app.launchArguments.append(TestingConstants.mockedJsonArg) // -mockedJson
     }
 }
