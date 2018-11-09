@@ -35,7 +35,7 @@ $ pod install
 You are now ready to open the iOS workspace with [XCode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
 ```
-open GeneratingAndManagingTestDataSampleApp.xcworkspace
+$ open GeneratingAndManagingTestDataSampleApp.xcworkspace
 ```
 
 You can now run the sample app to see it live, or you can run the test case to see the testing in action.
